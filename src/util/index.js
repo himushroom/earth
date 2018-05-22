@@ -47,9 +47,9 @@ function setupDeviceSettings() {
  * @returns {object} 返回一个Promise,所有图片加载完成的时候为resolve 
  */
 function cacheImages() {
-    let images = ["dot-inverted.png", "earth-glow.jpg",
+    let images = ["dot-inverted.png", "bg.png",
         "map_inverted.png", "map.png",
-        "star.jpg", "universe.jpg"
+        "star.jpg", "bg.png"
     ];
 
     return () => {
@@ -74,8 +74,8 @@ function cacheImages() {
  */
 function colorMix(p, c0, c1) {
 
-    c0=c0||consts.colorPrimary;
-    c1=c1||consts.colorDarken;
+    c0 = c0 || consts.colorPrimary;
+    c1 = c1 || consts.colorDarken;
 
     var n = p < 0 ? p * -1 : p,
         u = Math.round,
@@ -107,7 +107,7 @@ function colorMix(p, c0, c1) {
  * @returns {number}
  */
 function generateRandomNumber(min, max) {
-    var random = Math.floor(Math.random() * (max - min + 1)) + min;   
+    var random = Math.floor(Math.random() * (max - min + 1)) + min;
     return random;
 }
 
@@ -118,7 +118,7 @@ function generateRandomNumber(min, max) {
  * @returns 
  */
 function checkDistance(a, b) {
-    return Math.sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y) + (b.z - a.z) * (b.z - a.z) );
+    return Math.sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y) + (b.z - a.z) * (b.z - a.z));
 }
 /**
  * 平面坐标转化为球面坐标的方法
@@ -129,12 +129,12 @@ function checkDistance(a, b) {
  * @returns 
  */
 function latLongToVector3(lat, lon, radius, height) {
-    var phi = (lat)*Math.PI/180;
-    var theta = (lon-180)*Math.PI/180;
-    var x = -(radius+height) * Math.cos(phi) * Math.cos(theta);
-    var y = (radius+height) * Math.sin(phi);
-    var z = (radius+height) * Math.cos(phi) * Math.sin(theta);
-    return new THREE.Vector3(x,y,z);
+    var phi = (lat) * Math.PI / 180;
+    var theta = (lon - 180) * Math.PI / 180;
+    var x = -(radius + height) * Math.cos(phi) * Math.cos(theta);
+    var y = (radius + height) * Math.sin(phi);
+    var z = (radius + height) * Math.cos(phi) * Math.sin(theta);
+    return new THREE.Vector3(x, y, z);
 }
 /**
  * 插值函数
@@ -143,8 +143,8 @@ function latLongToVector3(lat, lon, radius, height) {
  * @param {number} fraction 0-1之间的数字
  * @returns 
  */
-function interpolation(from,to,fraction){
-    return (to-from)*fraction+from;
+function interpolation(from, to, fraction) {
+    return (to - from) * fraction + from;
 }
 
 

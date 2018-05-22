@@ -55,7 +55,7 @@ let {
     }
 
 } = consts,
-container = document.getElementById("interactive"), trackballControls,
+    container = document.getElementById("interactive"), trackballControls,
     state = new State();
 
 
@@ -77,14 +77,14 @@ async function init() {
     _initStage();
 
     let earthRotation = setEarthObject();
-     earthRotation.add(innerEarth());
+    earthRotation.add(innerEarth());
     earthRotation.add(earthMap(imgs[3]));
     earthRotation.add(earthBuffer(imgs[2]));
     earthRotation.add(spike());
 
     await scene.add(universe(imgs[5]))
     await scene.add(createRings());
-    
+
     await scene.add(earthRotation)
     await scene.add(outerEarth(imgs[1]))
 
@@ -92,7 +92,7 @@ async function init() {
 
 function setScene() {
     scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x000000, 0, 500);
+    scene.fog = new THREE.Fog(0x000000, 0, 500);  // 地球的颜色
     console.log(scene)
 }
 
@@ -111,11 +111,11 @@ function setCamera() {
 function setRender() {
     renderer = new THREE.WebGLRenderer({
         antialias: true,
-        alpha: false
+        alpha: true
     });
 
     renderer.setSize(WIDTH, HEIGHT);
-    renderer.setClearColor(0x000000, 1);
+    renderer.setClearColor(0x000000, 0);  // 背景
     container.appendChild(renderer.domElement);
 }
 
@@ -183,7 +183,7 @@ function animate() {
 
 function render() {
     renderer.render(scene, camera);
-    //trackballControls.update();
+    // trackballControls.update();
     state.update()
 
     if (targetCameraZ < globeMaxZoom) targetCameraZ = globeMaxZoom;
@@ -203,7 +203,7 @@ function render() {
 
     if (isMouseDown) return;
 
-    //targetRotationY += 0.002
+    targetRotationY += 0.005
 
 
 }

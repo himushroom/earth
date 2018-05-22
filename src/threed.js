@@ -224,7 +224,7 @@ function createPreloader(callbackFn) {
 
 function startPreloader() {
     preloaderArray.push("img/dot-inverted.png");
-    preloaderArray.push("img/earth-glow.jpg");
+    // preloaderArray.push("img/earth-glow.jpg");
     preloaderArray.push("img/ring_explosion.jpg");
     preloaderArray.push("img/map.png");
     preloaderArray.push("img/map_inverted.png");
@@ -701,7 +701,7 @@ function createGlobe(callbackFn) {
      
     // EARTH GLOW
     globeGlowSize = 200;
-    globeGlowTexture = new THREE.TextureLoader().load("img/earth-glow.jpg");
+    // globeGlowTexture = new THREE.TextureLoader().load("img/earth-glow.jpg");
     globeGlowTexture.anisotropy = 2;
     
     //globeGlowTexture.anisotropy = maxAnisotropy;
