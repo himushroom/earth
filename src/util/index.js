@@ -47,7 +47,7 @@ function setupDeviceSettings() {
  * @returns {object} 返回一个Promise,所有图片加载完成的时候为resolve 
  */
 function cacheImages() {
-    let images = ["dot-inverted.png", "bg.png",
+    let images = ["dot-inverted.png", "earth-glow.png",
         "map_inverted.png", "map.png",
         "star.jpg", "bg.png"
     ];
