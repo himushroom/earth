@@ -23,7 +23,7 @@ import {
 } from "./util";
 import TrackballControls from "./util/TrackballControls";
 
-import State from "./util/state"
+// import State from "./util/state"
 
 let {
     innerWidth: WIDTH,
@@ -55,13 +55,11 @@ let {
     }
 
 } = consts,
-    container = document.getElementById("interactive"), trackballControls,
-    state = new State();
+    container = document.getElementById("interactive"), trackballControls;
 
 
 init();
 
-document.body.appendChild(state.dom);
 window.addEventListener('resize', onWindowResize, false);
 document.getElementById("interactive").addEventListener('mousewheel', onMouseWheel, false);
 document.getElementById("interactive").addEventListener('mousedown', onMouseDown, false);
@@ -184,7 +182,7 @@ function animate() {
 function render() {
     renderer.render(scene, camera);
     // trackballControls.update();
-    state.update()
+    // state.update()
 
     if (targetCameraZ < globeMaxZoom) targetCameraZ = globeMaxZoom;
     if (targetCameraZ > globeMinZoom) targetCameraZ = globeMinZoom;
