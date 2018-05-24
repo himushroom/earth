@@ -23,8 +23,6 @@ import {
 } from "./util";
 import TrackballControls from "./util/TrackballControls";
 
-import State from "./util/state"
-
 let {
     innerWidth: WIDTH,
     innerHeight: HEIGHT
@@ -55,13 +53,11 @@ let {
     }
 
 } = consts,
-    container = document.getElementById("interactive"), trackballControls,
-    state = new State();
+    container = document.getElementById("interactive"), trackballControls;
 
 
 init();
 
-document.body.appendChild(state.dom);
 window.addEventListener('resize', onWindowResize, false);
 document.getElementById("interactive").addEventListener('mousewheel', onMouseWheel, false);
 document.getElementById("interactive").addEventListener('mousedown', onMouseDown, false);
@@ -93,7 +89,6 @@ async function init() {
 function setScene() {
     scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x000000, 0, 500);  // 地球的颜色
-    console.log(scene)
 }
 
 function setCamera() {
@@ -184,7 +179,6 @@ function animate() {
 function render() {
     renderer.render(scene, camera);
     // trackballControls.update();
-    state.update()
 
     if (targetCameraZ < globeMaxZoom) targetCameraZ = globeMaxZoom;
     if (targetCameraZ > globeMinZoom) targetCameraZ = globeMinZoom;

@@ -1,5 +1,5 @@
 var DashboardPlugin = require('webpack-dashboard/plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     devtool: false,
     entry: __dirname + "/src/main.js",
@@ -36,6 +36,10 @@ module.exports = {
         new DashboardPlugin(),
         new UglifyJsPlugin({
             uglifyOptions: {
+                output: {
+                    comments: false,
+                    beautify: false,
+                },
                 compress: {
                     warnings: false
                 }
@@ -43,8 +47,6 @@ module.exports = {
             sourceMap: false,
             parallel: true
         }),
+
     ]
-
-
-
 }
