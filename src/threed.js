@@ -1134,7 +1134,7 @@ function createStars(callbackFn) {
     starsZoomObject.name = 'starsObjectZoom';
     scene.add(starsZoomObject);
 
-    //starZoomTexture = new THREE.TextureLoader().load("img/dot-inverted.png");
+    // starZoomTexture = new THREE.TextureLoader().load("img/dot-inverted.png");
     starZoomTexture = new THREE.TextureLoader().load("img/star.jpg");
 
     // POINT CLOUD GEOMETRY
@@ -2177,11 +2177,11 @@ function latLongToVector3(lat, lon, radius, height) {
 }
 
 function animate() {
-    requestAnimationFrame(animate);
-    render();
-    if (statsCreated) {
-        stats.update();
-    }
+    // requestAnimationFrame(animate);
+    // render();
+    // if (statsCreated) {
+    //     stats.update();
+    // }
 }
 
 var cameraDirection = "left";

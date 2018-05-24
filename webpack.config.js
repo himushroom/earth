@@ -1,6 +1,7 @@
 var DashboardPlugin = require('webpack-dashboard/plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: false,
     entry: __dirname + "/src/main.js",
     output: {
         path: __dirname + "/public",
@@ -25,15 +26,23 @@ module.exports = {
             }, {
                 loader: "css-loader"
             }]
-        },{
+        }, {
             test: /\.(png|jpg)$/,
             loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
         }
-    ]
+        ]
     },
     plugins: [
-        new DashboardPlugin()
-
+        new DashboardPlugin(),
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                compress: {
+                    warnings: false
+                }
+            },
+            sourceMap: false,
+            parallel: true
+        }),
     ]
 
 

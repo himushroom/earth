@@ -15,8 +15,8 @@ window.consts = {
     rotationObject: null,
     earthObject: null,
 
-    colorPrimary: "#33CCFF",
-    colorDarken: "#000000",
+    colorPrimary: "#33CCFF",  // 顶部光的颜色33CCFF（蓝）
+    colorDarken: "#000000",  // 球透明的颜色5BD393(绿)92E69E
     globeRadius: 65,
     toRAD: Math.PI / 180,
 
@@ -38,11 +38,11 @@ window.consts = {
         lightShieldDistance: 400,
         lightShieldDecay: 2.0,
     },
-    stars:{
-        maxDistance:400,
-        minDistance:100,
-        number:500,
-        size:2,
+    stars: {
+        maxDistance: 400,
+        minDistance: 100,
+        number: 500,
+        size: 2,
     }
 }
 
